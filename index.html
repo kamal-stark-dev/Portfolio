@@ -27,31 +27,54 @@
 
       <i id="menu-icon" class="ri-menu-line"></i>
 
-      <button class="visit-btn">Visit GitHub</button>
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        aria-label="Switch to dark mode"
+      >
+        <i class="ri-moon-line"></i>
+      </button>
+
+      <a
+        href="https://www.github.com/kamal-stark-dev"
+        target="_blank"
+        class="visit-btn"
+        >Visit GitHub</a
+      >
     </header>
 
     <section id="about" class="about">
       <div class="about-container">
-        <img src="./assets/profile.jpg" alt="profile-image" />
-
         <div class="info-box">
           <div class="text">
-            <h3>Hi, I'm</h3>
+            <h3>Hi👋, I'm</h3>
             <h1>Kamalveer Singh</h1>
             <span>Software Developer</span>
           </div>
 
           <div class="btn-group">
-            <div class="btn">Download CV</div>
-            <div class="btn">Contact</div>
+            <a href="./assets/Kamalveer_Singh_CV.pdf" download class="btn"
+              >Download CV</a
+            >
+            <a href="#contact" class="btn">Contact</a>
           </div>
 
           <div class="socials">
-            <i class="ri-github-fill"></i>
-            <i class="ri-twitter-x-line"></i>
-            <i class="ri-linkedin-box-fill"></i>
+            <a href="https://www.github.com/kamal-stark-dev" target="_blank">
+              <i class="ri-github-fill"></i>
+            </a>
+            <a href="https://www.x.com/kamal_stark_" target="_blank"
+              ><i class="ri-twitter-x-line"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/kamalveer-singh"
+              target="_blank"
+              ><i class="ri-linkedin-box-fill"></i>
+            </a>
           </div>
         </div>
+
+        <img src="./assets/profile.jpg" alt="profile-image" />
       </div>
     </section>
 
@@ -151,15 +174,61 @@
     </section>
 
     <section class="contact" id="contact">
-      <div class="input-box">
-        <h2 class="section-title">Contact Me</h2>
-
-        <div class="input">
-          <input type="text" placeholder="example@email.com" />
-          <i class="ri-mail-line"></i>
+      <div class="contact-container">
+        <div class="contact-heading">
+          <h2 class="section-title">Let's Work Together</h2>
+          <p>
+            Have a project in mind, an opportunity, or just want to connect?
+            Feel free to send me a message.
+          </p>
         </div>
 
-        <div class="btn">Submit</div>
+        <form
+          class="contact-form"
+          id="contact-form"
+          action="https://formspree.io/f/YOUR_FORM_ID"
+          method="POST"
+        >
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="John Doe"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="john@example.com"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              placeholder="Tell me about your project or idea..."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            Send Message
+            <i class="ri-send-plane-line"></i>
+          </button>
+        </form>
       </div>
     </section>
 
