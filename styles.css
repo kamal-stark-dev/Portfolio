@@ -121,7 +121,7 @@ header {
 
   color: white;
 
-  padding: 0.7rem 1.5rem;
+  padding: 0.7rem 1rem 0.7rem 1.75rem;
   border-radius: var(--pill-radius);
 
   z-index: 100;
@@ -160,7 +160,7 @@ header {
 
   width: 0;
   left: 0;
-  height: 3px;
+  height: 2px;
   top: 20px;
 
   border-radius: 1rem;
