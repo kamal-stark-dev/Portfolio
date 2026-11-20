@@ -168,6 +168,10 @@ header {
   background: var(--gradient);
 }
 
+.nav-links li a:hover {
+  color: var(--accent-color);
+}
+
 .nav-links li a:hover::before {
   width: 100%;
 }
@@ -529,7 +533,7 @@ section {
   background-color: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: 1.5rem;
-  padding: 2.5rem 2rem;
+  padding: 2rem;
   box-shadow: var(--card-shadow);
   display: flex;
   flex-direction: column;
@@ -582,6 +586,37 @@ section {
 .form-group textarea {
   resize: vertical;
   min-height: 160px;
+}
+
+/* Contact form submission states */
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+#form-status {
+  text-align: center;
+  margin-top: 0.5rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+#form-status.success {
+  color: #16a34a;
+}
+
+#form-status.error {
+  color: #dc2626;
+}
+
+/* Honeypot: invisible to normal visitors */
+.honeypot {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
 }
 
 .submit-btn {
@@ -710,8 +745,16 @@ footer ul li a:hover {
   color: white;
 }
 
+[data-theme="dark"] .nav-links a:hover {
+  color: var(--accent-color);
+}
+
 [data-theme="dark"] .theme-toggle {
   color: white;
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  color: var(--accent-color);
 }
 
 /* =========================================*

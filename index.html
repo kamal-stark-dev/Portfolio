@@ -217,7 +217,7 @@
         <form
           class="contact-form"
           id="contact-form"
-          action="https://formspree.io/f/YOUR_FORM_ID"
+          action="https://formspree.io/f/xjywekww"
           method="POST"
         >
           <div class="form-row">
@@ -227,8 +227,9 @@
                 type="text"
                 id="name"
                 name="name"
-                placeholder="Elon Musk"
+                placeholder="Your name"
                 required
+                minlength="2"
               />
             </div>
 
@@ -238,7 +239,7 @@
                 type="email"
                 id="email"
                 name="email"
-                placeholder="elon@musk.com"
+                placeholder="you@example.com"
                 required
               />
             </div>
@@ -250,15 +251,38 @@
               id="message"
               name="message"
               rows="6"
-              placeholder="Would you like be a part of my PayPal mafia..."
+              placeholder="Tell me about your project or opportunity..."
               required
+              minlength="10"
             ></textarea>
           </div>
 
-          <button type="submit" class="submit-btn">
-            Send Message
+          <!-- Spam protection honeypot -->
+          <input
+            type="text"
+            name="_gotcha"
+            tabindex="-1"
+            autocomplete="off"
+            class="honeypot"
+            aria-hidden="true"
+          />
+
+          <!-- Email subject -->
+          <input
+            type="hidden"
+            name="_subject"
+            value="New Portfolio Contact Message"
+          />
+
+          <button type="submit" class="submit-btn" id="submit-btn">
+            <span id="btn-text">Send Message</span>
             <i class="ri-send-plane-line"></i>
           </button>
+
+          <!-- Submission feedback -->
+          <p id="form-status" role="status" aria-live="polite">
+            Open to ideas, collaborations, and new opportunities.
+          </p>
         </form>
       </div>
     </section>

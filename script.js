@@ -91,3 +91,59 @@ if (profileImage) {
         `;
   });
 }
+
+// ========================================
+// CONTACT FORM - FORMSPREE INTEGRATION
+// ========================================
+
+const contactForm = document.getElementById("contact-form");
+const formStatus = document.getElementById("form-status");
+const submitBtn = document.getElementById("submit-btn");
+const btnText = document.getElementById("btn-text");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    // Prevent multiple submissions
+    submitBtn.disabled = true;
+    btnText.textContent = "Sending...";
+    formStatus.textContent = "";
+    formStatus.className = "";
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: "POST",
+        body: new FormData(contactForm),
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        formStatus.textContent =
+          "Thank you! Your message has been sent successfully. I'll get back to you soon.";
+
+        formStatus.className = "success";
+
+        contactForm.reset();
+      } else {
+        throw new Error(
+          result.errors
+            ? result.errors.map((error) => error.message).join(", ")
+            : "Something went wrong. Please try again.",
+        );
+      }
+    } catch (error) {
+      formStatus.textContent =
+        error.message || "Unable to send your message. Please try again.";
+
+      formStatus.className = "error";
+    } finally {
+      submitBtn.disabled = false;
+      btnText.textContent = "Send Message";
+    }
+  });
+}
